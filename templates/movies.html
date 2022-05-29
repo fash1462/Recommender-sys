@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Your Movies</title>
+
+        <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='movies.css') }}">
+
+        
+
+    </head>
+    <body>
+
+         <!-- HEADER -->
+        <header>
+            <h1>Get Recommended!</h1>
+            <nav>
+            <a href="{{url_for('index')}}">Home</a>
+            <a href="{{url_for('movies')}}">Movies for you</a>
+            </nav>
+        </header>
+        <!--END OF HEADER--->
+
+        <section class="mymovies">
+            <h2 style="padding-top:10px;padding-left: 50px;bottom:0;">Movies you might like</h2>
+
+            <img  alt="pulp fiction" src="https://images-na.ssl-images-amazon.com/images/I/51VR3vJi9HL.jpg?format=300w">
+
+            <img  alt="silence of the lambs" src="https://th.bing.com/th/id/R.7334224f63473d4b3164fa725a23d5bf?rik=p2mFF1gpETVJsw&riu=http%3a%2f%2fimg.goldposter.com%2f2015%2f04%2fThe-Silence-of-the-Lambs_poster_goldposter_com_27.jpg&ehk=9zA%2bI6kEpFtPxDaGEoGj62rrraAJve1zWaBE3Bu9BfY%3d&risl=1&pid=ImgRaw&r=0?format=350w">
+
+            <img  alt="star wars: episode iv - a new hope"src="https://i5.walmartimages.com/asr/6e281203-a177-492c-9c02-81b7ef8c137c.54eb55162b83c755b70a022d35324f36.jpeg?format=300w">
+
+            <img alt="usual suspects"src="https://i.pinimg.com/originals/d9/54/6c/d9546c3ca101415bfcc16551687568cc.jpg?format=300w">
+
+            <img alt="terminator 2: judgment day" style="padding-top: 50px;"src="https://th.bing.com/th/id/OIP.eCv1_4zDYdP-e8SJgVYlkQHaLH?pid=ImgDet&rs=1?format=300w">
+
+            <img alt="Indiana jones and the raiders of the lost ark"  style="padding-top: 50px;" src="https://th.bing.com/th/id/OIP.be3jiNstamTMTbXVc6pv4AHaLH?pid=ImgDet&rs=1?format=300w">
+
+             <img alt="toy story"  style="padding-top: 50px;" src="https://originalvintagemovieposters.com/wp-content/uploads/2020/02/TOY-STORY-8479-scaled.jpg?format=300w">
+
+             <img alt="star wars: episode vi - return of the jedi"  style="padding-top: 50px;" src="https://th.bing.com/th/id/OIP.6RNKSmIqiiRp-9PBis5PoAHaKj?pid=ImgDet&rs=1?format=300w">
+        </section>
+        
+        <section style="padding-top:20px;">
+          <h2 style="padding-top:10px;padding-left: 50px;bottom:0;">Popular picks for you</h2>
+
+          <img  alt="Toy Story" src="https://originalvintagemovieposters.com/wp-content/uploads/2020/02/TOY-STORY-8479-scaled.jpg?format=300w">
+
+          <img  alt="Jumanji" src="https://th.bing.com/th/id/R.0345e847db14d1d94471f1a6ebfcad2f?rik=nXHKFA6yFUB5eA&riu=http%3a%2f%2fimage.tmdb.org%2ft%2fp%2foriginal%2fggHHLA4MBugHELH0MQjkXYLRJ1d.jpg&ehk=1MbAEbjL5%2frrcouEuFVcoaG0cNcoHWGtxqDKHVUVERo%3d&risl=&pid=ImgRaw&r=0?format=350w">
+
+          <img  alt="Heat"src="https://image.tmdb.org/t/p/original/3bhLxeLNqYvqEPpLmkUZCUWCMKO.jpg?format=300w">
+
+          <img alt="GoldenEye"src="https://th.bing.com/th/id/R.c12da1bce4264504f87b21c56b5e3a6c?rik=CBQ6UvN3hkEbMQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-m1mjxcI3KvA%2fT5V7BEVi4RI%2fAAAAAAAABVE%2fwPKo_4ArmIo%2fs1600%2fgoldeneye_poster.jpg&ehk=9%2bduEvstuZL9XSaCrzrqksf2z31D%2bSBThLwNDDHjqZo%3d&risl=&pid=ImgRaw&r=0?format=300w">
+
+          <img alt="Sudden Death" style="padding-top: 50px;"src="https://th.bing.com/th/id/OIP.F-ZeSIBLHgrr45mcl1JBmAHaLH?pid=ImgDet&rs=1?format=300w">
+
+          <img alt="Father of the Bride Part II"  style="padding-top: 50px;" src="https://image.tmdb.org/t/p/original/lf9RTErt8BSLQy98aSFblElvsCQ.jpg?format=300w">
+
+           <img alt="Sabrina"  style="padding-top: 50px;" src="https://th.bing.com/th/id/OIP.zgUHx2k7fy_bhc7_fBqptQHaLH?pid=ImgDet&rs=1?format=300w">
+
+           <img alt="Grumpier Old Men"  style="padding-top: 50px;" src="https://image.tmdb.org/t/p/original/w4q0vMlJCeNQnUMsVbjB3DiH1mw.jpg?format=300w">
+      </section>
+      
+
+      <!-- FOOTER -->
+        <footer class="footer">
+          <div class="footer__addr">
+            <h1 class="footer__logo">Movie Mart</h1>
+                
+            <h2>Contact</h2>
+            
+            <address>
+              Somewhere near you!<br>
+                  
+              <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+            </address>
+          </div>
+          
+          <ul class="footer__nav">
+            <li class="nav__item">
+              <h2 class="nav__title">Quick Links</h2>
+        
+              <ul class="nav__ul">
+                <li>
+                  <a href="{{url_for('index')}}">Home</a>
+                </li>
+        
+                <li>
+                  <a href="{{url_for('movies')}}">Movies</a>
+                </li>
+              </ul>
+            </li>
+            
+            <li class="nav__item nav__item--extra">
+              <h2 class="nav__title">Technology</h2>
+              
+              <ul class="nav__ul nav__ul--extra">
+                <li>
+                  <a href="#">Content based filtering</a>
+                </li>
+                
+                <li>
+                  <a href="#">Collaborative filtering</a>
+                </li>
+                
+                <li>
+                  <a href="#">Popularity based filtering</a>
+                </li>
+                
+                <li>
+                  <a href="https://www.themoviedb.org/documentation/api"><img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"></a>
+                </li>
+                
+              </ul>
+            </li>
+            
+          </ul>
+          
+          <div class="legal">
+            <p>&copy; All rights reserved.</p>
+            
+            <div class="legal__links">
+              <span>Made with <span class="heart">♥</span>
+            </div>
+          </div>
+        </footer>
+        <!-- END OF FOOTER -->
+        
+
+    </body>
+</html>

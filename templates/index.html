@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Mart</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Auto Complete -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css') }}">
+
+  <script type="text/javascript">
+    var films = '{{ suggestions | tojson }}'; 
+  </script>
+
+  <script>
+    $(function(){
+      $(window).scroll(function(){
+        var winTop = $(window).scrollTop();
+        if(winTop >= 5){
+          $("body").addClass("sticky-header");
+        }else{
+          $("body").removeClass("sticky-header");
+        }//if-else
+      });//win func.
+    });//ready func.
+  </script>
+
+</head>
+
+<body>
+
+  <div class = "wrapper">
+  <!-- HEADER -->
+  <header>
+    <div class="movieLogo">
+      <img src="{{ url_for('static', filename='new_logo.png') }}" alt="logo" height="200px" width="200px">
+    </div> 
+    <h1>Get Recommended!</h1>
+    <nav>
+        
+      <a href="{{url_for('index')}}">Home</a>
+      <a href="{{url_for('movies')}}">Movies for you</a>
+      
+    </nav>
+  </header>
+  <!-- END OF HEADER -->
+
+  <!-- SEARCH and ENTER -->
+	<div class="ml-container">
+    <div class="form-group shadow-textarea" style="margin-top: 30px;text-align: center;color: rgb(167, 160, 160);">
+        <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off" placeholder="Enter the Movie Name" style="background-color: #ffffff;border-color:#ffffff;width: 60%;color: #5266b1" required="required" />
+        <br>
+    </div>
+
+    <div class="form-group" style="text-align: center;">
+          <button class="btn btn-primary btn-block movie-button" style="background-color: #052a54;text-align: center;width:120px;" disabled="true" >Enter</button><br><br>
+    </div>
+	</div>
+
+  <div id="loader" class="text-center">
+  </div>
+  
+  <div class="fail">
+    <center><h3>Sorry! The movie you requested is not in our database. 
+    Please check the spelling or try with other movies!</h3></center>
+  </div>
+
+	<div class="results">
+    <center>
+      <h2 id="name" class="text-uppercase"></h2>
+    </center>
+	</div>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__addr">
+      <h1 class="footer__logo">Movie Mart</h1>
+          
+      <h2>Contact</h2>
+      
+      <address>
+        Somewhere near you!<br>
+            
+        <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+      </address>
+    </div>
+    
+    <ul class="footer__nav">
+      <li class="nav__item">
+        <h2 class="nav__title">Links</h2>
+  
+        <ul class="nav__ul">
+          <li>
+            <a href="{{url_for('index')}}">Home</a>
+          </li>
+  
+          <li>
+            <a href="{{url_for('movies')}}">Movies</a>
+          </li>
+              
+        </ul>
+      </li>
+      
+      <li class="nav__item nav__item--extra">
+        <h2 class="nav__title">Technology</h2>
+        
+        <ul class="nav__ul nav__ul--extra">
+          <li>
+            <a href="#">Content based filtering</a>
+          </li>
+          
+          <li>
+            <a href="#">Collaborative filtering</a>
+          </li>
+          
+          <li>
+            <a href="#">Popularity based filtering</a>
+          </li>
+          
+          <li>
+            <a href="https://www.themoviedb.org/documentation/api"><img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"></a>
+          </li>
+          
+        </ul>
+      </li>
+      
+    </ul>
+    
+    <div class="legal">
+      <p>&copy; All rights reserved.</p>
+      
+      <div class="legal__links">
+        <span>Made with <span class="heart">♥</span>
+      </div>
+    </div>
+  </footer>
+  <!-- END OF FOOTER -->
+	
+	<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='autocomplete.js')}}"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='recommend.js') }}"></script>
+  
+  </div>
+</body>
+</html>
