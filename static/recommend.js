@@ -170,6 +170,26 @@ function show_details(movie_details,arr,movie_title,my_api_key,movie_id){
   });
 }
 
+// get the details of individual cast
+function get_individual_cast(movie_cast,my_api_key) {
+    cast_bdays = [];
+    cast_bios = [];
+    cast_places = [];
+    for(var cast_id in movie_cast.cast_ids){
+      $.ajax({
+        type:'GET',
+        url:'https://api.themoviedb.org/3/person/'+movie_cast.cast_ids[cast_id]+'?api_key='+my_api_key,
+        async:false,
+        success: function(cast_details){
+          cast_bdays.push((new Date(cast_details.birthday)).toDateString().split(' ').slice(1).join(' '));
+          cast_bios.push(cast_details.biography);
+          cast_places.push(cast_details.place_of_birth);
+        }
+      });
+    }
+    return {cast_bdays:cast_bdays,cast_bios:cast_bios,cast_places:cast_places};
+  }
+
 
 // getting the details of the cast for the requested movie
 function get_movie_cast(movie_id,my_api_key){
